@@ -235,6 +235,7 @@ body {
 .experience-card.revealed {
     opacity: 1;
     transform: translateY(0);
+    
 }
 
 /* Premium Hover Micro-interactions */
@@ -354,4 +355,288 @@ body {
 
 .delay-2 {
     transition-delay: 0.25s;
+}
+
+
+/* ======================== */
+
+/* EXPREIENCE Section */
+
+/* ======================== */
+
+
+.text-amber {
+    color: var(--amber-gold);
+}
+.tracking-wider {
+    letter-spacing: 0.15em;
+}
+.small-title {
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* --- Layout Background --- */
+.featured-experiences-section {
+    background-color: var(--bg-dark);
+}
+
+/* --- Top Header Button --- */
+.btn-view-all {
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    padding: 8px 14px;
+    border-radius: 0;
+    border-color: rgba(255, 255, 255, 0.4);
+    color: #ffffff;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+.btn-view-all:hover {
+    background-color: #ffffff;
+    color: var(--bg-dark);
+    border-color: #ffffff;
+}
+
+@media(max-width: 576px) {
+    .btn-view-all {
+        font-size: 0.55rem;
+        padding: 6px 10px;
+    }
+}
+
+/* --- Experience Cards Structure --- */
+.experience-card {
+    background-color: transparent;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Image zoom & frame wrapper */
+.card-img-wrapper {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 3 / 4; /* Perfect vertical portrait crop matched from UI */
+    width: 100%;
+    border-radius: 6px;
+}
+
+.card-img-custom {
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    filter: brightness(0.9);
+}
+
+/* Overlay Badge System */
+.badge-type {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 10;
+    font-size: 0.55rem;
+    text-size-adjust: uppercase;
+    letter-spacing: 0.1em;
+    padding: 4px 8px;
+    background: rgba(140, 106, 62, 0.25);
+    border: 1px solid var(--amber-gold);
+    color: var(--amber-gold);
+    font-weight: 500;
+}
+.badge-private {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #ffffff;
+}
+
+/* Card Metadata details */
+.card-content-body {
+    padding: 20px 0 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: border-color 0.3s ease;
+}
+
+.card-duration {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+}
+
+.card-price {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--amber-gold);
+}
+
+.card-title {
+    font-size: 1.35rem;
+    font-weight: 400;
+    color: #ffffff;
+    margin-top: 4px;
+    margin-bottom: 24px;
+    transition: color 0.3s ease;
+}
+
+/* Dynamic Interactive Footer */
+
+.card-footer-action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.action-text {
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+.action-arrow {
+    font-size: 1.1rem;
+    color: #ffffff;
+    transform: translateX(0);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --- Complex Interaction Hover States --- */
+.experience-card:hover .card-img-custom {
+    transform: scale(1.05);
+}
+
+
+.experience-card:hover .card-title {
+    color: var(--amber-gold);
+}
+
+.experience-card:hover .card-content-body {
+    border-color: rgba(195, 155, 98, 0.4);
+}
+
+.experience-card:hover .action-arrow {
+    transform: translateX(6px);
+    color: var(--amber-gold);
+}
+
+
+
+/* ======================== */
+
+/* Mark Section */
+
+/* ======================== */
+
+
+.marquee-section {
+    width: 100%;
+    background-color: var(--bg-dark-pitch);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Gradient Mask to smoothly fade items in on the left and out on the right */
+.marquee-wrapper {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+}
+
+.marquee-inner {
+    display: flex;
+    width: max-content;
+    flex-wrap: nowrap;
+}
+
+/* --- The Animation Engine --- */
+.marquee-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    min-width: 100%;
+    gap: 4.5rem; /* Gap between cities */
+    padding-right: 4.5rem;
+    animation: scrollContinuous var(--marquee-speed) linear infinite;
+}
+
+/* Smooth slow down when an agency partner or client hovers a destination */
+.marquee-inner:hover .marquee-group {
+    animation-play-state: paused;
+}
+
+@keyframes scrollContinuous {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+
+/* --- Typography Item Styles --- */
+.marquee-item {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: var(--text-silver-gray);
+    white-space: nowrap;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    display: inline-block;
+    transition: color 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+                text-shadow 0.4s ease;
+}
+
+/* Interactive Hover States */
+.marquee-item:hover {
+    color: var(--text-white);
+    transform: scale(1.04) translateY(-2px);
+    text-shadow: 0 10px 25px rgba(195, 155, 98, 0.15);
+}
+
+/* Optional Class applied when hovering an item to dim out neighbors */
+.marquee-inner:hover .marquee-item:not(:hover) {
+    color: rgba(255, 255, 255, 0.15);
+    filter: blur(1px);
+}
+
+/* --- Background Preview Window (Bonus Luxury FX) --- */
+.marquee-bg-preview {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    filter: brightness(0.25) contrast(1.1);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    transform: scale(1.02);
+    pointer-events: none;
+}
+
+.marquee-bg-preview.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 992px) {
+    .marquee-item { font-size: 2rem; }
+    .marquee-group { gap: 3rem; padding-right: 3rem; }
+}
+
+@media (max-width: 576px) {
+    .marquee-item { font-size: 1.5rem; }
+    .marquee-group { gap: 2rem; padding-right: 2rem; }
 }

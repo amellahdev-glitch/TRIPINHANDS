@@ -1,108 +1,165 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TripInHands - Luxury Morocco Expeditions</title>
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
 
-</head>
-<body>
-
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <header class="hero-section d-flex flex-column justify-content-between">
-        
-        <nav class="container-xl py-4 px-4">
-            <div class="row align-items-center">
-                
-                <div class="col-6 col-lg-3">
-                    <a href="#" class="text-white text-decoration-none fs-4 fw-bold tracking-tight">
-                        TripInHands
-                    </a>
-                </div>
+      <nav class="container-xl py-4 px-4">
+        <div class="row align-items-center">
+          <div class="col-6 col-lg-3">
+            <a
+              href="#"
+              class="text-white text-decoration-none fs-4 fw-bold tracking-tight"
+            >
+              TripInHands
+            </a>
+          </div>
 
-                <div class="col-lg-6 d-none d-lg-flex justify-content-center gap-4">
-                    <a href="#group-tour" class="nav-link-custom">Group Tours</a>
-                    <a href="#" class="nav-link-custom">Private Journeys</a>
-                    <a href="#" class="nav-link-custom">Experiences</a>
-                    <a href="#" class="nav-link-custom">Why Us</a>
-                </div>
+          <div class="col-lg-6 d-none d-lg-flex justify-content-center gap-4">
+            <a href="#group-tour" class="nav-link-custom">Group Tours</a>
+            <a href="#experience" class="nav-link-custom">Private Journeys</a>
+            <a href="#" class="nav-link-custom">Experiences</a>
+            <a href="#" class="nav-link-custom">Why Us</a>
+          </div>
 
-                <div class="col-6 col-lg-3 d-none d-sm-flex justify-content-end gap-3">
-                    <a href="#" class="btn btn-outline-white py-2 px-3 text-nowrap" style="font-size: 0.7rem;">Private Journeys</a>
-                    <a href="#" class="btn btn-gold py-2 px-3 text-nowrap" style="font-size: 0.7rem;">Group Tours</a>
-                </div>
+          <div
+            class="col-6 col-lg-3 d-none d-sm-flex justify-content-end gap-3"
+          >
+            <a
+              href="#"
+              class="btn btn-outline-white py-2 px-3 text-nowrap"
+              style="font-size: 0.7rem"
+              >Private Journeys</a
+            >
+            <a
+              href="#"
+              class="btn btn-gold py-2 px-3 text-nowrap"
+              style="font-size: 0.7rem"
+              >Group Tours</a
+            >
+          </div>
 
-                <div class="col-6 d-sm-none d-flex justify-content-end">
-                    <button class="btn border-0 p-1 text-white" id="menuToggleBtn" type="button" aria-label="Open Menu">
-                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-                        </svg>
-                    </button>
-                </div>
+          <div class="col-6 d-sm-none d-flex justify-content-end">
+            <button
+              class="btn border-0 p-1 text-white"
+              id="menuToggleBtn"
+              type="button"
+              aria-label="Open Menu"
+            >
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
+          </div>
 
-                <div class="col-6 d-none d-sm-flex d-lg-none justify-content-end">
-                    <button class="btn border-1 border-white-50 p-2 text-white" id="tabletToggleBtn" type="button">
-                        <span class="small uppercase me-1">Menu</span>
-                    </button>
-                </div>
-
-            </div>
-        </nav>
-
-        <div class="container-md text-center my-auto py-5 px-4">
-            <div class="row justify-content-center">
-                <div class="col-xl-10">
-                    
-                    <h1 class="hero-title mb-4">
-                        Morocco, <em>Crafted for the Few.</em>
-                    </h1>
-                    
-                    <p class="hero-subtitle text-uppercase mb-5 mx-auto">
-                        Group Escapes. Private Journeys. No Compromises.
-                    </p>
-
-                    <div class="d-flex flex-column flex-sm-row justify-content-center gap-3 max-w-md mx-auto">
-                        <a href="#" class="btn btn-gold px-4 py-3">Browse Group Tours</a>
-                        <a href="#" class="btn btn-outline-white px-4 py-3">Design Your Journey</a>
-                    </div>
-
-                </div>
-            </div>
+          <div class="col-6 d-none d-sm-flex d-lg-none justify-content-end">
+            <button
+              class="btn border-1 border-white-50 p-2 text-white"
+              id="tabletToggleBtn"
+              type="button"
+            >
+              <span class="small uppercase me-1">Menu</span>
+            </button>
+          </div>
         </div>
+      </nav>
 
-        <div class="text-center pb-4">
-            <div class="scroll-indicator text-uppercase mb-2">Scroll</div>
-            <div class="bounce-icon">
-                <svg width="14" height="14" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
-                </svg>
+      <div class="container-md text-center my-auto py-5 px-4">
+        <div class="row justify-content-center">
+          <div class="col-xl-10">
+            <h1 class="hero-title mb-4">
+              Morocco, <em>Crafted for the Few.</em>
+            </h1>
+
+            <p class="hero-subtitle text-uppercase mb-5 mx-auto">
+              Group Escapes. Private Journeys. No Compromises.
+            </p>
+
+            <div
+              class="d-flex flex-column flex-sm-row justify-content-center gap-3 max-w-md mx-auto"
+            >
+              <a href="#" class="btn btn-gold px-4 py-3">Browse Group Tours</a>
+              <a href="#" class="btn btn-outline-white px-4 py-3"
+                >Design Your Journey</a
+              >
             </div>
+          </div>
         </div>
+      </div>
 
+      <div class="text-center pb-4">
+        <div class="scroll-indicator text-uppercase mb-2">Scroll</div>
+        <div class="bounce-icon">
+          <svg
+            width="14"
+            height="14"
+            fill="none"
+            stroke="rgba(255,255,255,0.5)"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M19 14l-7 7m0 0l-7-7m7 7V3"
+            />
+          </svg>
+        </div>
+      </div>
     </header>
 
     <div class="mobile-nav-overlay" id="mobileNavMenu">
-        <button class="mobile-menu-close" id="menuCloseBtn" aria-label="Close Menu">&times;</button>
-        <div class="d-flex flex-column align-items-center gap-4 text-center">
-            <a href="#" class="fs-3 text-white text-decoration-none font-serif italic mb-3">TripInHands</a>
-            <a href="#" class="nav-link-custom fs-5 py-1">Group Tours</a>
-            <a href="#" class="nav-link-custom fs-5 py-1">Private Journeys</a>
-            <a href="#" class="nav-link-custom fs-5 py-1">Experiences</a>
-            <a href="#" class="nav-link-custom fs-5 py-1">Why Us</a>
-            
-            <div class="d-flex flex-column gap-2 mt-4 w-100 px-5">
-                <a href="#" class="btn btn-gold w-100">Group Tours</a>
-                <a href="#" class="btn btn-outline-white w-100">Private Journeys</a>
-            </div>
+      <button
+        class="mobile-menu-close"
+        id="menuCloseBtn"
+        aria-label="Close Menu"
+      >
+        &times;
+      </button>
+      <div class="d-flex flex-column align-items-center gap-4 text-center">
+        <a
+          href="#"
+          class="fs-3 text-white text-decoration-none font-serif italic mb-3"
+          >TripInHands</a
+        >
+        <a href="#" class="nav-link-custom fs-5 py-1">Group Tours</a>
+        <a href="#" class="nav-link-custom fs-5 py-1">Private Journeys</a>
+        <a href="#" class="nav-link-custom fs-5 py-1">Experiences</a>
+        <a href="#" class="nav-link-custom fs-5 py-1">Why Us</a>
+
+        <div class="d-flex flex-column gap-2 mt-4 w-100 px-5">
+          <a href="#" class="btn btn-gold w-100">Group Tours</a>
+          <a href="#" class="btn btn-outline-white w-100">Private Journeys</a>
         </div>
+      </div>
     </div>
 
     <!-- ========================== -->
@@ -111,88 +168,381 @@
 
     <!-- ========================== -->
 
-
-
-
     <section class="experience-section" id="group-tour">
-        <div class="container container-md px-4">
-            
-            <div class="row">
-                <div class="col-12 text-start">
-                    <span class="section-label">The Collection</span>
-                    <h2 class="section-title">Two Ways to Experience</h2>
-                </div>
-            </div>
-
-            <div class="row g-4 justify-content-center">
-                
-                <div class="col-12 col-md-6">
-                    <a href="#" class="experience-card delay-1" id="groupCard">
-                        <div>
-                            <h3 class="card-heading">Group Excursions</h3>
-                            <p class="card-description">
-                                From the Sahara to the Souk — join curated departures with fellow travelers who share your standards. Fixed dates, flawless execution.
-                            </p>
-                            <ul class="feature-list bullets-gold">
-                                <li>Instant booking available</li>
-                                <li>Small groups max 12</li>
-                                <li>Expert local guides</li>
-                            </ul>
-                        </div>
-                        
-                        <div>
-                            <div class="card-divider"></div>
-                            <div class="d-flex align-items-end justify-content-between">
-                                <div>
-                                    <span class="price-label">From</span>
-                                    <span class="price-value">$299<span class="price-unit">/person</span></span>
-                                </div>
-                                <div class="action-arrow">
-                                    <svg width="20" height="20" fill="none" stroke-width="1.5" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="col-12 col-md-6">
-                    <a href="#" class="experience-card delay-2" id="privateCard">
-                        <div>
-                            <h3 class="card-heading">Private Journeys</h3>
-                            <p class="card-description">
-                                Your Morocco, your rules. Bespoke itineraries designed around your preferences, with private transport and a dedicated concierge.
-                            </p>
-                            <ul class="feature-list bullets-white">
-                                <li>Fully tailored itineraries</li>
-                                <li>Private premium vehicle</li>
-                                <li>24/7 dedicated concierge</li>
-                            </ul>
-                        </div>
-                        
-                        <div>
-                            <div class="card-divider"></div>
-                            <div class="d-flex align-items-end justify-content-between">
-                                <div>
-                                    <span class="price-label">From</span>
-                                    <span class="price-value">$2,400</span>
-                                </div>
-                                <div class="action-arrow">
-                                    <svg width="20" height="20" fill="none" stroke-width="1.5" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-            </div>
+      <div class="container container-md px-4">
+        <div class="row">
+          <div class="col-12 text-start">
+            <span class="section-label">The Collection</span>
+            <h2 class="section-title">Two Ways to Experience</h2>
+          </div>
         </div>
+
+        <div class="row g-4 justify-content-center">
+          <div class="col-12 col-md-6">
+            <a href="#" class="experience-card delay-1" id="groupCard">
+              <div>
+                <h3 class="card-heading">Group Excursions</h3>
+                <p class="card-description">
+                  From the Sahara to the Souk — join curated departures with
+                  fellow travelers who share your standards. Fixed dates,
+                  flawless execution.
+                </p>
+                <ul class="feature-list bullets-gold">
+                  <li>Instant booking available</li>
+                  <li>Small groups max 12</li>
+                  <li>Expert local guides</li>
+                </ul>
+              </div>
+
+              <div>
+                <div class="card-divider"></div>
+                <div class="d-flex align-items-end justify-content-between">
+                  <div>
+                    <span class="price-label">From</span>
+                    <span class="price-value"
+                      >$299<span class="price-unit">/person</span></span
+                    >
+                  </div>
+                  <div class="action-arrow">
+                    <svg
+                      width="20"
+                      height="20"
+                      fill="none"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-12 col-md-6">
+            <a href="#" class="experience-card delay-2" id="privateCard">
+              <div>
+                <h3 class="card-heading">Private Journeys</h3>
+                <p class="card-description">
+                  Your Morocco, your rules. Bespoke itineraries designed around
+                  your preferences, with private transport and a dedicated
+                  concierge.
+                </p>
+                <ul class="feature-list bullets-white">
+                  <li>Fully tailored itineraries</li>
+                  <li>Private premium vehicle</li>
+                  <li>24/7 dedicated concierge</li>
+                </ul>
+              </div>
+
+              <div>
+                <div class="card-divider"></div>
+                <div class="d-flex align-items-end justify-content-between">
+                  <div>
+                    <span class="price-label">From</span>
+                    <span class="price-value">$2,400</span>
+                  </div>
+                  <div class="action-arrow">
+                    <svg
+                      width="20"
+                      height="20"
+                      fill="none"
+                      stroke-width="1.5"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================= -->
+
+    <!-- EXPERIENCE Section -->
+
+    <!-- ============================= -->
+
+    <section class="featured-experiences-section py-5" id="experience">
+      <div class="container py-1">
+        <div
+          class="row align-items-end mb-5"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+        >
+          <div class="col-md-8 col-8">
+            <span
+              class="text-uppercase tracking-wider text-amber fs-7 small-title"
+              >Curated Itineraries</span
+            >
+            <h2 class="display-5 text-white ff-serif mt-1">
+              Featured Experiences
+            </h2>
+          </div>
+          <div class="col-md-4 col-4 text-end">
+            <a
+              href="#"
+              class="btn btn-outline-light btn-view-all text-uppercase"
+              >View All Experiences</a
+            >
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <div
+            class="col-10 col-md-6 col-lg-4 mx-auto"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="experience-card">
+              <div class="card-img-wrapper">
+                <span class="badge-type">Group</span>
+                <img
+                  src="https://images.unsplash.com/photo-1547234935-80c7145ec969?auto=format&fit=crop&w=600&q=80"
+                  alt="Sahara Desert Camp"
+                  class="card-img-custom"
+                />
+              </div>
+              <div class="card-content-body">
+                <div
+                  class="d-flex justify-content-between align-items-center mb-2"
+                >
+                  <span class="card-duration text-uppercase">3 Days</span>
+                  <span class="card-price">$799</span>
+                </div>
+                <h3 class="card-title ff-serif">Sahara Desert Camp</h3>
+                <div class="card-footer-action">
+                  <span class="action-text text-uppercase">Book Now</span>
+                  <span class="action-arrow">&rarr;</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-10 col-md-6 col-lg-4 mx-auto"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="experience-card">
+              <div class="card-img-wrapper">
+                <span class="badge-type">Group</span>
+                <img
+                  src="https://images.unsplash.com/photo-1539650116574-8efeb43e2750?auto=format&fit=crop&w=600&q=80"
+                  alt="Imperial Cities Circuit"
+                  class="card-img-custom"
+                />
+              </div>
+              <div class="card-content-body">
+                <div
+                  class="d-flex justify-content-between align-items-center mb-2"
+                >
+                  <span class="card-duration text-uppercase">7 Days</span>
+                  <span class="card-price">$1,299</span>
+                </div>
+                <h3 class="card-title ff-serif">Imperial Cities Circuit</h3>
+                <div class="card-footer-action">
+                  <span class="action-text text-uppercase">Book Now</span>
+                  <span class="action-arrow">&rarr;</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-10 col-md-6 col-lg-4 mx-auto"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div class="experience-card">
+              <div class="card-img-wrapper">
+                <span class="badge-type badge-private">Private</span>
+                <img
+                  src="https://images.unsplash.com/photo-1582610116397-edb318620f90?auto=format&fit=crop&w=600&q=80"
+                  alt="Private Riad Retreat"
+                  class="card-img-custom"
+                />
+              </div>
+              <div class="card-content-body">
+                <div
+                  class="d-flex justify-content-between align-items-center mb-2"
+                >
+                  <span class="card-duration text-uppercase">5 Days</span>
+                  <span class="card-price">$3,200</span>
+                </div>
+                <h3 class="card-title ff-serif">Private Riad Retreat</h3>
+                <div class="card-footer-action">
+                  <span class="action-text text-uppercase">Inquire</span>
+                  <span class="action-arrow">&rarr;</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-10 col-md-6 col-lg-4 mx-auto"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="experience-card">
+              <div class="card-img-wrapper">
+                <span class="badge-type">Group</span>
+                <img
+                  src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80"
+                  alt="Atlas Mountains Trek"
+                  class="card-img-custom"
+                />
+              </div>
+              <div class="card-content-body">
+                <div
+                  class="d-flex justify-content-between align-items-center mb-2"
+                >
+                  <span class="card-duration text-uppercase">4 Days</span>
+                  <span class="card-price">$799</span>
+                </div>
+                <h3 class="card-title ff-serif">Atlas Mountains Trek</h3>
+                <div class="card-footer-action">
+                  <span class="action-text text-uppercase">Book Now</span>
+                  <span class="action-arrow">&rarr;</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-10 col-md-6 col-lg-4 mx-auto"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="experience-card">
+              <div class="card-img-wrapper">
+                <span class="badge-type">Group</span>
+                <img
+                  src="https://images.unsplash.com/photo-1557503799-fac6a98054b3?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZmV6fGVufDB8fDB8fHww"
+                  alt="Fes Artisan Immersion"
+                  class="card-img-custom"
+                />
+              </div>
+              <div class="card-content-body">
+                <div
+                  class="d-flex justify-content-between align-items-center mb-2"
+                >
+                  <span class="card-duration text-uppercase">2 Days</span>
+                  <span class="card-price">$349</span>
+                </div>
+                <h3 class="card-title ff-serif">Fes Artisan Immersion</h3>
+                <div class="card-footer-action">
+                  <span class="action-text text-uppercase">Book Now</span>
+                  <span class="action-arrow">&rarr;</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col-10 col-md-6 col-lg-4 mx-auto"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div class="experience-card">
+              <div class="card-img-wrapper">
+                <span class="badge-type badge-private">Private</span>
+                <img
+                  src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80"
+                  alt="Custom Coastal Route"
+                  class="card-img-custom"
+                />
+              </div>
+              <div class="card-content-body">
+                <div
+                  class="d-flex justify-content-between align-items-center mb-2"
+                >
+                  <span class="card-duration text-uppercase">10 Days</span>
+                  <span class="card-price">$4,800</span>
+                </div>
+                <h3 class="card-title ff-serif">Custom Coastal Route</h3>
+                <div class="card-footer-action">
+                  <span class="action-text text-uppercase">Inquire</span>
+                  <span class="action-arrow">&rarr;</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================== -->
+
+    <!-- Mark Section -->
+
+    <!-- ========================== -->
+
+    <section class="marquee-section py-5">
+      <div class="container-fluid px-0 position-relative">
+        <!-- The Infinite Scrolling Track -->
+        <div class="marquee-wrapper">
+          <div class="marquee-inner">
+            <!-- Group 1 (Original List matching image_b4b1fe.png) -->
+            <div class="marquee-group">
+              <span class="marquee-item" data-bg="marrakech.jpg"
+                >Marrakech</span
+              >
+              <span class="marquee-item" data-bg="fes.jpg">Fes</span>
+              <span class="marquee-item" data-bg="chefchaouen.jpg"
+                >Chefchaouen</span
+              >
+              <span class="marquee-item" data-bg="sahara.jpg">Sahara</span>
+              <span class="marquee-item" data-bg="essaouira.jpg"
+                >Essaouira</span
+              >
+              <span class="marquee-item" data-bg="atlas.jpg"
+                >Atlas Mountains</span
+              >
+              <span class="marquee-item" data-bg="casablanca.jpg"
+                >Casablanca</span
+              >
+              <span class="marquee-item" data-bg="rabat.jpg">Rabat</span>
+            </div>
+
+            <!-- Group 2 (Exact Duplicate for Seamless Endless Loop) -->
+            <div class="marquee-group" aria-hidden="true">
+              <span class="marquee-item" data-bg="marrakech.jpg"
+                >Marrakech</span
+              >
+              <span class="marquee-item" data-bg="fes.jpg">Fes</span>
+              <span class="marquee-item" data-bg="chefchaouen.jpg"
+                >Chefchaouen</span
+              >
+              <span class="marquee-item" data-bg="sahara.jpg">Sahara</span>
+              <span class="marquee-item" data-bg="essaouira.jpg"
+                >Essaouira</span
+              >
+              <span class="marquee-item" data-bg="atlas.jpg"
+                >Atlas Mountains</span
+              >
+              <span class="marquee-item" data-bg="casablanca.jpg"
+                >Casablanca</span
+              >
+              <span class="marquee-item" data-bg="rabat.jpg">Rabat</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <script src="script.js"></script>
-
-</body>
+  </body>
 </html>

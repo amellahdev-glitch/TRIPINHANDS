@@ -63,3 +63,38 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+/* ================================ */
+
+/* EXPERIENCE Section */
+
+/* ================================ */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".experience-card");
+
+  const observerOptions = {
+    root: null,
+    threshold: 0.05,
+    rootMargin: "0px 0px -30px 0px",
+  };
+
+  const gridObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("revealed");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  cards.forEach((card) => gridObserver.observe(card));
+});
+
+/* ================================ */
+
+/* Mark Section */
+
+/* ================================ */
+
+

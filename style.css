@@ -235,7 +235,7 @@ body {
 .experience-card.revealed {
     opacity: 1;
     transform: translateY(0);
-    
+
 }
 
 /* Premium Hover Micro-interactions */
@@ -368,9 +368,11 @@ body {
 .text-amber {
     color: var(--amber-gold);
 }
+
 .tracking-wider {
     letter-spacing: 0.15em;
 }
+
 .small-title {
     font-size: 0.75rem;
     font-weight: 600;
@@ -392,6 +394,7 @@ body {
     font-weight: 500;
     transition: all 0.3s ease;
 }
+
 .btn-view-all:hover {
     background-color: #ffffff;
     color: var(--bg-dark);
@@ -420,7 +423,8 @@ body {
 .card-img-wrapper {
     position: relative;
     overflow: hidden;
-    aspect-ratio: 3 / 4; /* Perfect vertical portrait crop matched from UI */
+    aspect-ratio: 3 / 4;
+    /* Perfect vertical portrait crop matched from UI */
     width: 100%;
     border-radius: 6px;
 }
@@ -449,6 +453,7 @@ body {
     color: var(--amber-gold);
     font-weight: 500;
 }
+
 .badge-private {
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.4);
@@ -561,7 +566,8 @@ body {
     align-items: center;
     justify-content: space-around;
     min-width: 100%;
-    gap: 4.5rem; /* Gap between cities */
+    gap: 4.5rem;
+    /* Gap between cities */
     padding-right: 4.5rem;
     animation: scrollContinuous var(--marquee-speed) linear infinite;
 }
@@ -575,6 +581,7 @@ body {
     0% {
         transform: translate3d(0, 0, 0);
     }
+
     100% {
         transform: translate3d(-100%, 0, 0);
     }
@@ -590,9 +597,9 @@ body {
     cursor: pointer;
     letter-spacing: 0.02em;
     display: inline-block;
-    transition: color 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
-                transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
-                text-shadow 0.4s ease;
+    transition: color 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+        transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+        text-shadow 0.4s ease;
 }
 
 /* Interactive Hover States */
@@ -632,11 +639,475 @@ body {
 
 /* --- Responsive Adjustments --- */
 @media (max-width: 992px) {
-    .marquee-item { font-size: 2rem; }
-    .marquee-group { gap: 3rem; padding-right: 3rem; }
+    .marquee-item {
+        font-size: 2rem;
+    }
+
+    .marquee-group {
+        gap: 3rem;
+        padding-right: 3rem;
+    }
 }
 
 @media (max-width: 576px) {
-    .marquee-item { font-size: 1.5rem; }
-    .marquee-group { gap: 2rem; padding-right: 2rem; }
+    .marquee-item {
+        font-size: 1.5rem;
+    }
+
+    .marquee-group {
+        gap: 2rem;
+        padding-right: 2rem;
+    }
 }
+
+
+/* =================== */
+
+/* Why chose us section */
+
+/* =================== */
+
+
+.features-section {
+    background-color: #0d0d0d;
+    padding: 100px 0;
+}
+
+/* Typography */
+.sub-title {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #c5a880;
+    /* Elegant gold accent */
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.main-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: #ffffff;
+    font-weight: 400;
+    margin-bottom: 60px;
+}
+
+/* Feature Cards */
+.feature-card {
+    background: linear-gradient(145deg, #121212, #0f0f0f);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 4px;
+    padding: 40px 30px;
+    height: 100%;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    cursor: pointer;
+}
+
+/* Premium top light glow effect on hover */
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #c5a880, transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(197, 168, 128, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+.feature-card:hover::before {
+    opacity: 1;
+}
+
+/* SVG Icon Container */
+.icon-wrapper {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Explicit SVG styling matching image_10bd9d.png */
+.icon-wrapper svg {
+    width: 100%;
+    height: 100%;
+    stroke: #c5a880;
+    /* Gold stroke color */
+    stroke-width: 1.25;
+    /* Thin, elegant lines */
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.feature-card:hover .icon-wrapper {
+    transform: scale(1.08);
+}
+
+/* Card Content */
+.card-title {
+    color: #ffffff;
+    font-size: 1.35rem;
+    font-weight: 500;
+    margin-bottom: 18px;
+    letter-spacing: -0.3px;
+}
+
+.card-text {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    font-weight: 300;
+    color: #8e8e8e;
+}
+
+/* Smooth Entrance Scroll Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.delay-1 {
+    animation-delay: 0.1s;
+}
+
+.delay-2 {
+    animation-delay: 0.2s;
+}
+
+.delay-3 {
+    animation-delay: 0.3s;
+}
+
+.delay-4 {
+    animation-delay: 0.4s;
+}
+
+
+/* ==================== */
+
+/* stories section */
+
+/* ==================== */
+
+
+.testimonials-section {
+    background-color: #0d0d0d;
+    padding: 100px 0;
+}
+
+/* Section Typography */
+.sub-title {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #c5a880;
+    /* Signature gold accent */
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.main-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: #ffffff;
+    font-weight: 400;
+    margin-bottom: 60px;
+}
+
+/* Testimonial Column Block */
+.testimonial-item {
+    padding: 20px 10px 40px 10px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.testimonial-item:hover {
+    transform: translateY(-5px);
+    border-bottom-color: rgba(197, 168, 128, 0.4);
+}
+
+/* Geometric Star Icons Wrapper */
+.stars-wrapper {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 25px;
+}
+
+.stars-wrapper svg {
+    width: 14px;
+    height: 14px;
+    fill: none;
+    stroke: #c5a880;
+    /* Gold outline */
+    stroke-width: 1.5;
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
+}
+
+.testimonial-item:hover .stars-wrapper svg {
+    opacity: 1;
+}
+
+/* Quote Text Styling */
+.quote-text {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.2rem, 2vw, 1.45rem);
+    line-height: 1.6;
+    color: #e0e0e0;
+    font-weight: 400;
+    margin-bottom: 40px;
+}
+
+/* Author Meta Info */
+.author-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 4px;
+    letter-spacing: -0.2px;
+}
+
+.author-location {
+    font-size: 0.85rem;
+    color: #666666;
+    font-weight: 400;
+}
+
+/* Entrance Animation Keyframe */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Staggered Delay Intervals */
+.delay-1 {
+    animation-delay: 0.1s;
+}
+
+.delay-2 {
+    animation-delay: 0.2s;
+}
+
+.delay-3 {
+    animation-delay: 0.3s;
+}
+
+
+/* ==================== */
+
+/* Welcom section */
+
+/* ==================== */
+
+.hero-cta-section {
+    background: radial-gradient(circle at center, rgba(197, 168, 128, 0.08) 0%, #0d0d0d 70%);
+    background-color: #0d0d0d;
+    min-height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Elegant Typography */
+.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 6vw, 4.8rem);
+    /* Fluid scaling across device widths */
+    color: #ffffff;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+    margin-bottom: 24px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: revealText 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.hero-subtitle {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: #8c8c8c;
+    font-weight: 300;
+    line-height: 1.7;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: revealText 1s cubic-bezier(0.25, 1, 0.5, 1) 0.2s forwards;
+}
+
+/* Modern Fluid Reveal Animation */
+@keyframes revealText {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Subtle hover effect for interactive elegance */
+.hero-content-box {
+    transition: transform 0.6s ease;
+}
+
+.hero-cta-section:hover .hero-content-box {
+    transform: scale(1.01);
+}
+
+
+/* ================= */
+
+/* footer */
+
+/* ================= */
+
+.site-footer {
+      background-color: #0d0d0d;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      padding: 90px 0 30px 0;
+      color: #666666; /* Muted color from reference image */
+      border-top: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    /* Brand Block Styling */
+    .footer-brand-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.85rem;
+      color: #ffffff;
+      font-weight: 700;
+      margin-bottom: 24px;
+      letter-spacing: -0.3px;
+    }
+
+    .footer-brand-desc {
+      font-size: 0.95rem;
+      line-height: 1.65;
+      font-weight: 300;
+      max-width: 320px;
+      margin-bottom: 30px;
+    }
+
+    /* Social Icons Styles */
+    .social-links-wrapper {
+      display: flex;
+      gap: 12px;
+    }
+
+    .social-btn {
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+      color: #8c8c8c;
+      text-decoration: none;
+    }
+
+    .social-btn svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    .social-btn:hover {
+      color: #c5a880; /* Elegant gold accent */
+      border-color: rgba(197, 168, 128, 0.4);
+      transform: translateY(-3px);
+      background-color: rgba(197, 168, 128, 0.03);
+    }
+
+    /* Navigation Columns */
+    .footer-heading {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #ffffff;
+      font-weight: 600;
+      margin-bottom: 25px;
+    }
+
+    .footer-links-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-links-list li {
+      margin-bottom: 14px;
+    }
+
+    .footer-links-list a {
+      color: #8c8c8c;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 400;
+      transition: color 0.25s ease, transform 0.25s ease;
+      display: inline-block;
+    }
+
+    .footer-links-list a:hover {
+      color: #c5a880;
+      transform: translateX(3px);
+    }
+
+    /* Footer Bottom Meta Bar */
+    .footer-bottom-divider {
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      margin-top: 80px;
+      padding-top: 30px;
+      font-size: 0.85rem;
+    }
+
+    .copyright-text {
+      color: #444444;
+    }
+
+    .tagline-text {
+      color: #444444;
+      font-weight: 400;
+    }

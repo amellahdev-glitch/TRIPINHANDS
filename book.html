@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Masterlist | TripInHands</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Premium Apple-Inspired Dark Palette */
+    body {
+      background-color: #0d0d0d;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #a3a3a3;
+      overflow-x: hidden;
+      padding-top: 100px; /* Space for the fixed header */
+    }
+
+    /* --- Integrated Signature Header --- */
+    .premium-header {
+      background-color: rgba(13, 13, 13, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1050;
+      transition: all 0.3s ease;
+    }
+
+    .brand-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: #ffffff;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      font-weight: 500;
+    }
+
+    .brand-logo span {
+      color: #c5a880; /* Accent Gold */
+    }
+
+    .nav-home-btn {
+      font-size: 0.9rem;
+      color: #8e8e8e;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-home-btn:hover {
+      color: #c5a880;
+    }
+
+    .nav-home-btn svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+    }
+
+    /* Minimalist Typography */
+    .sub-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #c5a880;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .main-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      color: #ffffff;
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+
+    .section-desc {
+      font-size: 1.1rem;
+      font-weight: 300;
+      max-width: 600px;
+      line-height: 1.7;
+      margin-bottom: 50px;
+    }
+
+    /* Horizontal Clean Navigation Filters */
+    .city-nav {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      margin-bottom: 60px;
+      padding-bottom: 5px;
+      white-space: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .city-nav::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav-link-custom {
+      color: #666666;
+      font-weight: 500;
+      font-size: 1.05rem;
+      text-decoration: none;
+      padding: 10px 25px;
+      display: inline-block;
+      position: relative;
+      transition: color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .nav-link-custom:hover, .nav-link-custom.active {
+      color: #c5a880;
+    }
+
+    .nav-link-custom.active::after {
+      content: '';
+      position: absolute;
+      bottom: -7px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #c5a880;
+    }
+
+    /* Structural Segment Layouts */
+    .category-block {
+      margin-bottom: 70px;
+    }
+
+    .category-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.85rem;
+      color: #ffffff;
+      margin-bottom: 35px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .category-title svg {
+      width: 22px;
+      height: 22px;
+      stroke: #c5a880;
+      stroke-width: 1.5;
+      fill: none;
+    }
+
+    /* Curated Content Architectural Cards */
+    .curated-card {
+      background: linear-gradient(145deg, #121212, #0f0f0f);
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      border-radius: 4px;
+      padding: 35px 30px;
+      height: 100%;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .curated-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #c5a880, transparent);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .curated-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(197, 168, 128, 0.2);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .curated-card:hover::before {
+      opacity: 1;
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 15px;
+      gap: 15px;
+    }
+
+    .item-title {
+      font-family: 'Playfair Display', serif;
+      color: #ffffff;
+      font-size: 1.35rem;
+      font-weight: 500;
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    .item-price {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #c5a880;
+      font-weight: 600;
+      font-size: 0.95rem;
+      white-space: nowrap;
+      background: rgba(197, 168, 128, 0.07);
+      padding: 4px 12px;
+      border-radius: 2px;
+      border: 1px solid rgba(197, 168, 128, 0.15);
+      letter-spacing: 0.5px;
+    }
+
+    .item-desc {
+      font-size: 0.95rem;
+      line-height: 1.65;
+      font-weight: 300;
+      color: #8e8e8e;
+      margin-bottom: 25px;
+    }
+
+    .item-meta {
+      font-size: 0.85rem;
+      color: #555555;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      padding-top: 15px;
+      margin-top: auto;
+    }
+
+    .item-meta svg {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+    }
+
+    /* Minimalist Footer */
+    .site-footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      margin-top: 120px;
+      padding: 40px 0;
+      font-size: 0.85rem;
+    }
+    .copyright-text, .tagline-text { color: #444444; }
+
+    /* Fluid Entry Animation */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(25px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-fade-in {
+      opacity: 0;
+      animation: fadeInUp 0.7s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    }
+    .delay-1 { animation-delay: 0.15s; }
+  </style>
+</head>
+<body>
+
+  <header class="premium-header py-3">
+    <div class="container d-flex justify-content-between align-items-center">
+      <a href="index.html" class="brand-logo">Trip<span>In</span>Hands</a>
+      <a href="index.html" class="nav-home-btn">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+        Home
+      </a>
+    </div>
+  </header>
+
+  <main class="py-5 my-2">
+    <div class="container">
+      
+      <header class="row m-0 animate-fade-in">
+        <div class="col-12 p-0">
+          <span class="sub-title">Curated Directory</span>
+          <h1 class="main-title">The Masterlist</h1>
+          <p class="section-desc">Hand-vetted sanctuaries, culinary landmarks, and tailored pursuits across Morocco's key destinations.</p>
+        </div>
+      </header>
+
+      <div class="city-nav animate-fade-in delay-1">
+        <div class="nav d-flex gap-2" id="cityTab" role="tablist">
+          <button class="nav-link-custom active border-0 bg-transparent" id="marrakech-tab" data-bs-toggle="tab" data-bs-target="#marrakech" type="button" role="tab">Marrakech</button>
+          <button class="nav-link-custom border-0 bg-transparent" id="rabat-tab" data-bs-toggle="tab" data-bs-target="#rabat" type="button" role="tab">Rabat</button>
+          <button class="nav-link-custom border-0 bg-transparent" id="casablanca-tab" data-bs-toggle="tab" data-bs-target="#casablanca" type="button" role="tab">Casablanca</button>
+          <button class="nav-link-custom border-0 bg-transparent" id="tangier-tab" data-bs-toggle="tab" data-bs-target="#tangier" type="button" role="tab">Tangier</button>
+        </div>
+      </div>
+
+      <div class="tab-content" id="cityTabContent">
+        
+        <div class="tab-pane fade show active" id="marrakech" role="tabpanel">
+          
+          <div class="category-block">
+            <h3 class="category-title">
+              <svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+              Culinary Enclaves
+            </h3>
+            <div class="row g-4">
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="curated-card">
+                  <div>
+                    <div class="item-header">
+                      <h4 class="item-title">La Grande Table Marocaine</h4>
+                      <span class="item-price">MAD 1,400+</span>
+                    </div>
+                    <p class="item-desc">Housed within Royal Mansour, fine dining executed to absolute peak royalty. A profound reimagining of ancestral Moroccan feasts.</p>
+                  </div>
+                  <div class="item-meta">
+                    <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    Royal Mansour, Medina
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="curated-card">
+                  <div>
+                    <div class="item-header">
+                      <h4 class="item-title">Al Fassia</h4>
+                      <span class="item-price">MAD 450+</span>
+                    </div>
+                    <p class="item-desc">Entirely run by women, specializing in legendary, slow-cooked tagines and exceptionally nuanced, crisp pigeon pastillas.</p>
+                  </div>
+                  <div class="item-meta">
+                    <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    Gueliz District
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="category-block">
+            <h3 class="category-title">
+              <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+              Premium Stays
+            </h3>
+            <div class="row g-4">
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="curated-card">
+                  <div>
+                    <div class="item-header">
+                      <h4 class="item-title">Amanjena</h4>
+                      <span class="item-price">MAD 9,500+</span>
+                    </div>
+                    <p class="item-desc">An oasis of symmetric pink stuccowork inspired by Moorish design. Absolute architectural silence and private pavilions.</p>
+                  </div>
+                  <div class="item-meta">
+                    <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    Route de Ouarzazate
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="curated-card">
+                  <div>
+                    <div class="item-header">
+                      <h4 class="item-title">El Fenn</h4>
+                      <span class="item-price">MAD 4,200+</span>
+                    </div>
+                    <p class="item-desc">A grand boutique riad complex merging deep saturated color walls with world-class, contemporary art collections.</p>
+                  </div>
+                  <div class="item-meta">
+                    <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    Bab El Ksour, Medina
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="category-block">
+            <h3 class="category-title">
+              <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+              Bespoke Explorations
+            </h3>
+            <div class="row g-4">
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="curated-card">
+                  <div>
+                    <div class="item-header">
+                      <h4 class="item-title">Private Agafay Desert Sunset</h4>
+                      <span class="item-price">MAD 2,200</span>
+                    </div>
+                    <p class="item-desc">An elegant custom escape to stony desert plains. Includes premium camp frameworks, stargazing, and private luxury transits.</p>
+                  </div>
+                  <div class="item-meta">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24,7.76 14.12,14.12 7.76,16.24 8.88,9.88"></polygon></svg>
+                    Agafay Plain Outskirts
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="curated-card">
+                  <div>
+                    <div class="item-header">
+                      <h4 class="item-title">Jardin Majorelle Architectural Loop</h4>
+                      <span class="item-price">MAD 300</span>
+                    </div>
+                    <p class="item-desc">VIP early access to walk Yves Saint Laurent's striking bold cobalt structures alongside an expert cultural guide.</p>
+                  </div>
+                  <div class="item-meta">
+                    <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    Rue Yves Saint Laurent
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="rabat" role="tabpanel">
+          
+          <div class="category-block">
+            <h3 class="category-title">
+              <svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+              Culinary Enclaves
+            </h3>
+            <div class="row g-4">
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="curated-card">
+                  <div>
+                    <div class="item-header">
+                      <h4 class="item-title">Le Dhow</h4>
+                      <span class="item-price">MAD 350+</span>
+                    </div>
+                    <p class="item-desc">An elegant dinner lounge onboard a replica wooden merchant vessel docked directly underneath the historic Kasbah walls.</p>
+                  </div>
+                  <div class="item-meta">
+                    <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    Bouregreg River Marina
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="curated-card">
+                  <div>
+                    <div class="item-header">
+                      <h4 class="item-title">Dar Naji</h4>
+                      <span class="item-price">MAD 180+</span>
+                    </div>
+                    <p class="item-desc">Unrivaled authentic Moroccan comfort food in a traditional framework. Renowned for classic sweet seffa couscous.</p>
+                  </div>
+                  <div class="item-meta">
+                    <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    Bab El Had Boundary
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="category-block">
+            <h3 class="category-title">
+              <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+              Premium Stays
+            </h3>
+            <div class="row g-4">
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="curated-card">
+                  <div>
+                    <div class="item-header">
+                      <h4 class="item-title">The Ritz-Carlton Dar Es Salam</h4>
+                      <span class="item-price">MAD 4,800+</span>
+                    </div>
+                    <p class="item-desc">A grand luxury resort surrounded by acres of ancient oak forests and championship golf courses. Premium isolation.</p>
+                  </div>
+                  <div class="item-meta">
+                    <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    Sidi Bouknadel Border
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="curated-card">
+                  <div>
+                    <div class="item-header">
+                      <h4 class="item-title">Villa Mandarine</h4>
+                      <span class="item-price">MAD 1,900+</span>
+                    </div>
+                    <p class="item-desc">A highly private boutique retreat hidden inside a flourishing orange grove oasis right in the heart of the capital.</p>
+                  </div>
+                  <div class="item-meta">
+                    <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    Souissi District
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="category-block">
+            <h3 class="category-title">
+              <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+              Bespoke Explorations
+            </h3>
+            <div class="row g-4">
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="curated-card">
+                  <div>
+                    <div class="item-header">
+                      <h4 class="item-title">Chellah Necropolis Guided Walk</h4>
+                      <span class="item-price">MAD 120</span>
+                    </div>
+                    <p class="item-desc">A deep dive into ancient layers of Phoenician, Roman, and Marinid ruins, framed by serene natural gardens.</p>
+                  </div>
+                  <div class="item-meta">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24,7.76 14.12,14.12 7.76,16.24 8.88,9.88"></polygon></svg>
+                    Youssoufia Sector
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="curated-card">
+                  <div>
+                    <div class="item-header">
+                      <h4 class="item-title">Oudayas Art Craft Walk</h4>
+                      <span class="item-price">MAD 200</span>
+                    </div>
+                    <p class="item-desc">Stroll the narrow blue-and-white stone pathways, ending with traditional tea overlooks facing the Atlantic interface.</p>
+                  </div>
+                  <div class="item-meta">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24,7.76 14.12,14.12 7.76,16.24 8.88,9.88"></polygon></svg>
+                    Kasbah des Oudayas
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="casablanca" role="tabpanel">
+          
+          <div class="category-block">
+            <h3 class="category-title">
+              <svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+              Culinary Enclaves
+            </h3>
+            <div class="row g-4">
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="curated-card">
+                  <div>
+                    <div class="item-header">
+                      <h4 class="item-title">Rick's Café</h4>
+                      <span class="item-price">MAD 450+</span>
+                    </div>
+                    <p class="item-desc">An architectural recreation of the legendary lounge from the 1942 film. Features exceptional live jazz pianos.</p>
+                  </div>
+                  <div class="item-meta">
+                    <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    Sour Jdid Old Medina Border
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="curated-card">
+                  <div>
+                    <div class="item-header">
+                      <h4 class="item-title">Le Cabestan</h4>
+                      <span class="item-price">MAD 550+</span>
+                    </div>
+                    <p class="item-desc">A dramatic modern ocean-view restaurant situated directly over raw Atlantic rocks with high-end French profiling.</p>
+                  </div>
+                  <div class="item-meta">
+                    <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    Phare d'El Hank, Corniche
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="category-block">
+            <h3 class="category-title">
+              <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+              Premium Stays
+            </h3>
+            <div class="row g-4">
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="curated-card">
+                  <div>
+                    <div class="item-header">
+                      <h4 class="item-title">Four Seasons Resort</h4>
+                      <span class="item-price">MAD 5,500+</span>
+                    </div>
+                    <p class="item-desc">A modern, minimalist luxury sanctuary offering completely unobstructed private oceanfront terraces and a serene spa escape.</p>
+                  </div>
+                  <div class="item-meta">
+                    <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    Boulevard de la Corniche
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="curated-card">
+                  <div>
+                    <div class="item-header">
+                      <h4 class="item-title">Hôtel Le Doge</h4>
+                      <span class="item-price">MAD 2,200+</span>
+                    </div>
+                    <p class="item-desc">An authentic 1930s Art Deco townhouse meticulously converted into an intimate boutique hotel with vintage visual romance.</p>
+                  </div>
+                  <div class="item-meta">
+                    <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    Rue du Dr Vey, Gauthier
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="category-block">
+            <h3 class="category-title">
+              <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+              Bespoke Explorations
+            </h3>
+            <div class="row g-4">
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="curated-card">
+                  <div>
+                    <div class="item-header">
+                      <h4 class="item-title">Hassan II Mosque Tour</h4>
+                      <span class="item-price">MAD 140</span>
+                    </div>
+                    <p class="item-desc">A guided architectural masterclass showcasing intricate carved stucco, zellij tiling, and a massive retractable roof.</p>
+                  </div>
+                  <div class="item-meta">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24,7.76 14.12,14.12 7.76,16.24 8.88,9.88"></polygon></svg>
+                    Boulevard Sidi Mohammed
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="curated-card">
+                  <div>
+                    <div class="item-header">
+                      <h4 class="item-title">Art Deco Architectural Walk</h4>
+                      <span class="item-price">MAD 400</span>
+                    </div>
+                    <p class="item-desc">A highly specialized private walking tour observing the sweeping 1920s facades and geometric balconies downtown.</p>
+                  </div>
+                  <div class="item-meta">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24,7.76 14.12,14.12 7.76,16.24 8.88,9.88"></polygon></svg>
+                    Boulevard Mohammed V Center
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="tangier" role="tabpanel">
+          
+          <div class="category-block">
+            <h3 class="category-title">
+              <svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+              Culinary Enclaves
+            </h3>
+            <div class="row g-4">
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="curated-card">
+                  <div>
+                    <div class="item-header">
+                      <h4 class="item-title">El Morocco Club</h4>
+                      <span class="item-price">MAD 500+</span>
+                    </div>
+                    <p class="item-desc">An elegant upscale establishment built near the Kasbah gates, blending classic French execution with bold Mediterranean seafood.</p>
+                  </div>
+                  <div class="item-meta">
+                    <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    Place du Kasbah
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="curated-card">
+                  <div>
+                    <div class="item-header">
+                      <h4 class="item-title">Café Hafa</h4>
+                      <span class="item-price">MAD 40+</span>
+                    </div>
+                    <p class="item-desc">The iconic terraced institution legendary for traditional mint tea and simple coastal frames looking straight over the Straits.</p>
+                  </div>
+                  <div class="item-meta">
+                    <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    Quartier Marshan Cliffs
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="category-block">
+            <h3 class="category-title">
+              <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+              Premium Stays
+            </h3>
+            <div class="row g-4">
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="curated-card">
+                  <div>
+                    <div class="item-header">
+                      <h4 class="item-title">Nord-Pinus Tanger</h4>
+                      <span class="item-price">MAD 3,100+</span>
+                    </div>
+                    <p class="item-desc">An extraordinary luxury riad positioned on the highest crest of the Kasbah walls. Rich leather accents and endless sea horizons.</p>
+                  </div>
+                  <div class="item-meta">
+                    <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    Rue Riad Sultan, Kasbah
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="curated-card">
+                  <div>
+                    <div class="item-header">
+                      <h4 class="item-title">Grand Hôtel Villa de France</h4>
+                      <span class="item-price">MAD 1,800+</span>
+                    </div>
+                    <p class="item-desc">A beautifully restored historic hotel where the legendary painter Henri Matisse crafted his famous window masterpieces.</p>
+                  </div>
+                  <div class="item-meta">
+                    <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    Route d'Anfa, Medina Rim
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="category-block">
+            <h3 class="category-title">
+              <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+              Bespoke Explorations
+            </h3>
+            <div class="row g-4">
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="curated-card">
+                  <div>
+                    <div class="item-header">
+                      <h4 class="item-title">Caves of Hercules Sea Cruise</h4>
+                      <span class="item-price">MAD 1,800</span>
+                    </div>
+                    <p class="item-desc">A private luxury powerboat cruise from the modern marina out along the dramatic coast where the Atlantic meets the Mediterranean.</p>
+                  </div>
+                  <div class="item-meta">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24,7.76 14.12,14.12 7.76,16.24 8.88,9.88"></polygon></svg>
+                    Cape Spartel Interface
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 col-lg-4">
+                <div class="curated-card">
+                  <div>
+                    <div class="item-header">
+                      <h4 class="item-title">American Legation Museum</h4>
+                      <span class="item-price">MAD 50</span>
+                    </div>
+                    <p class="item-desc">A quiet stroll through the first American public property acquired outside the US, showcasing rare historic maps and treaties.</p>
+                  </div>
+                  <div class="item-meta">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polygon points="16.24,7.76 14.12,14.12 7.76,16.24 8.88,9.88"></polygon></svg>
+                    Rue d'Amerique, Medina Lower
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-12 col-md-6 text-center text-md-start mb-2 mb-md-0">
+          <span class="copyright-text">© 2026 TripInHands. All rights reserved.</span>
+        </div>
+        <div class="col-12 col-md-6 text-center text-md-end">
+          <span class="tagline-text">Designed for the Few.</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
